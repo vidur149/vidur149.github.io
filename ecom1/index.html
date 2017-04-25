@@ -6,13 +6,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="app.js"></script>
     <link rel="stylesheet" href="theme.css ">
+    <script src="https://use.edgefonts.net/maiden-orange.js"></script>
 </head>
 
-<body>
-    {{1 + 2}}
-    <script>
-        var app = angular.module("ecom", []);
-    </script>
+<body ng-controller="myCtrl">
+    <div ng-click="classChange()" class="{{backColor}}">
+        <h1>{{ message }} </h1>
+        <h3> Click me to change color</h3>
+    </div>
+    <div ng-click="increment()" class="inc">
+        <h1>{{ counter }}</h1>
+        <h3>click me to change value</h3>
+    </div>
 </body>
 
 </html>
