@@ -14,6 +14,7 @@ div {
     cursor: pointer;
     flex-direction: column;
     font-family: maiden-orange, serif;
+    font-size: x-large;
 }
 
 .red {
