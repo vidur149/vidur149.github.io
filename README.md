@@ -1,2 +1,1 @@
-# angularJs
-# THis repository contains some basic examples of angularJs assignments
+# vidur149.github.io
