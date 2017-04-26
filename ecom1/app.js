@@ -1,13 +1,18 @@
-var app = angular.module("ecom", []);
-app.controller("myCtrl", function($scope) {
+(function() {
+    angular.module("ecom", []);
+    angular.module("ecom").controller("myCtrl", myCtrl);
 
-    $scope.message = "Yeh message controller ke variable mein stored hai";
-    $scope.backColor = "red";
-    $scope.counter = 0;
-    $scope.classChange = function() {
-        $scope.backColor = $scope.backColor === "red" ? "blue" : "red";
-    };
-    $scope.increment = function() {
-        $scope.counter = $scope.counter + 1;
-    };
-});
+    function myCtrl() {
+        var vm = this;
+        vm.message = "Yeh message controller ke variable mein stored hai";
+        vm.backColor = "red";
+        vm.counter = 0;
+        vm.classChange = function() {
+            vm.backColor = vm.backColor === "red" ? "blue" : "red";
+        }
+        vm.increment = function() {
+            vm.counter = vm.counter + 1;
+        };
+
+    }
+})(window.angular);
