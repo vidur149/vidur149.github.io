@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>ecom-2</title>
+
+    <!--Material stylesheet-->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <!--Angular Libraries-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
+
+    <!--Material script-->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <!--App script-->
+    <script src="app.js"></script>
+
+    <!--App css-->
+    <link rel="stylesheet" href="theme.css ">
+</head>
+
+<body ng-app="ecom" ng-controller="myCtrl as vm" class="main">
+    <div class="products">
+        <ul>
+            <div class="header">
+                <h1> Products You Can Buy</h1>
+            </div>
+            <li ng-repeat="product in vm.products ">
+                <div class="product-card">
+                    <h2>{{product.name}}
+                        <span>
+              <button class="cart" ng-click="vm.addToCart(product)">Add To Cart</button>
+            </span>
+                    </h2>
+                    <div class="product-details">
+                        <p>{{product.price | currency}}</p>
+                        <p>{{product.type}}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="cart">
+        <ul>
+            <div class="header">
+                <h1>Products In Cart</h1>
+                <h3>Cart Value {{vm.cartValue() | currency}}</h3>
+            </div>
+            <li ng-repeat="product in vm.cart track by $index">
+                <div class="product-card">
+                    <h2>{{product.name}} <span>
+            <button class="cart" ng-click="vm.removeFromCart(product)">Remove From Cart</button>
+            </span>
+                    </h2>
+                    <div class="product-details">
+                        <p>{{product.price | currency}}</p>
+                        <p>{{product.type}}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
