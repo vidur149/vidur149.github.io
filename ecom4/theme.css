@@ -34,7 +34,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    flex-direction: column;
 }
 
 li {
@@ -43,11 +42,4 @@ li {
 
 .product-details p {
     margin-right: 10px;
-}
-
-form {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin: 18.72px;
 }

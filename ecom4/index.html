@@ -2,9 +2,24 @@
 <html>
 
 <head>
-    <title>ecom-3</title>
+    <title>ecom-4</title>
+
+    <!--Material stylesheet-->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <!--Angular Libraries-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
+
+    <!--Material script-->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <!--App script-->
     <script src="app.js"></script>
+
+    <!--App css-->
     <link rel="stylesheet" href="theme.css ">
 </head>
 
@@ -13,19 +28,8 @@
         <ul>
             <div class="header">
                 <h1> Products You Can Buy</h1>
-                <form>
-                    <div class="form-group">
-                        <label for="singleSelect"> Sort By: </label>
-                        <select name="singleSelect" ng-model="vm.orderByMe">
-                        <option value="name">Name (a-z)</option>
-                        <option value="price">Price(l-h)</option>
-                        <option value="categor">category</option>
-                    </select>
-                    </div>
-                    <input type="text" ng-model="test" placeholder="products search kare">
-                </form>
             </div>
-            <li ng-repeat="product in vm.products | orderBy: vm.orderByMe | filter:test">
+            <li ng-repeat="product in vm.products ">
                 <div class="product-card">
                     <h2>{{product.name}}
                         <span>

@@ -1,11 +1,11 @@
 (function() {
-    angular.module("ecom", []);
+
+    angular.module("ecom", ['ngMaterial']);
     angular.module("ecom").controller("myCtrl", myCtrl);
 
     function myCtrl() {
         var vm = this;
         vm.cart = [];
-        vm.orderByme = "price";
         vm.products = [{
             name: "Moto G5",
             price: "18000",
@@ -49,4 +49,4 @@
             return total;
         }
     }
-})();
+})(window.angular);
