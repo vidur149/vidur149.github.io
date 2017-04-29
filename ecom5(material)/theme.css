@@ -1,4 +1,5 @@
-body {
+body,
+h1 {
     margin: 0;
 }
 
@@ -6,6 +7,8 @@ body {
     display: flex;
     justify-content: space-around;
     background: #fafafa;
+    width: 80%;
+    margin: auto;
 }
 
 .products,
@@ -34,6 +37,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-direction: column;
 }
 
 li {
@@ -42,4 +46,26 @@ li {
 
 .product-details p {
     margin-right: 10px;
+}
+
+form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+md-card._md.md-dark-color-theme {
+    height: 170px;
+    font-weight: 400;
+}
+
+md-input-container {
+    display: flex;
+    align-items: center;
+}
+
+.layout-row>.flex {
+    display: flex;
+    justify-content: center;
 }

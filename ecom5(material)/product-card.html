@@ -1,0 +1,17 @@
+<md-card md-theme="dark-color">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{product.name}}</span>
+            <span class="md-subhead">{{product.type}}</span>
+        </md-card-title-text>
+        <md-card-title-media>
+            <div class="md-media-md card-media"></div>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="space-around center">
+        <span>
+            <md-tooltip md-direction="left">price</md-tooltip>
+            {{product.price | currency}}
+        </span>
+        <md-button ng-click="add(product)">Add To Cart</md-button>
+    </md-card-actions>
+</md-card>
