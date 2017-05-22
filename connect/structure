@@ -1,0 +1,13 @@
+endpoints
+> signup ( id, username, password)
+> Post Updates ( id,content, likes{ }, comments )
+> common timeline
+
+-------------------------------------------
+> individual plus common timeline
+> profile photo upload
+> nested comments
+
+----------------------------------
+
+> indivual messaging
