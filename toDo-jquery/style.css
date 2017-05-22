@@ -1,0 +1,73 @@
+body {
+    max-width: 1000px;
+    margin: auto;
+    background-color: cadetblue;
+    font-family: aclonica, sans-serif;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: seashell;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 3% 0;
+    font-family: aclonica, sans-serif;
+}
+
+.container {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todo-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: aliceblue;
+    padding: 4% 31%;
+}
+
+#list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    /* align-self: center; */
+    /* width: 53%; */
+    margin: 0;
+    /* padding: 7% 0px; */
+    justify-content: c;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+#list li {
+    display: flex;
+    flex-direction: row;
+    font-family: aclonica, sans-serif;
+    font-size: xx-large;
+    justify-content: space-between;
+    /* margin-bottom: 15px; */
+    text-transform: capitalize;
+    padding: 0px 26%;
+    border-bottom: 1px solid;
+    padding: 26px;
+    margin-bottom: 1px;
+}
+
+.remove {
+    cursor: pointer;
+}
+
+input {
+    font-size: large;
+    font-family: aclonica, sans-serif;
+}
