@@ -1,0 +1,36 @@
+﻿<h1>Home</h1>
+<p>You're logged in!!</p>
+<p><a href="#/login">Logout</a></p>
+
+<form name="form" ng-submit="vm.post()" role="form">
+    <div class="form-group">
+        <label for="content">Content</label>
+        <input type="text" name="content" ng-model="vm.content" required />
+    </div>
+    <div class="form-actions">
+        <button type="submit" ng-disabled="form.$invalid || vm.dataLoading">POST</button>
+    </div>
+</form>
+<ul id="list">
+    <li ng-repeat="post in vm.posts" data-id="{{post.id}}">
+        <div class="content"> {{ post.content}}</div>
+        <div class="likes" ng-click="vm.like(post.id)"> {{ post['total_likes'] }}</div>
+        <div class="user"> {{ post.username}}</div>
+        <div class="date"> {{ post.datetime}}</div>
+        <form name="form" ng-submit="vm.comment(post)" role="form">
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <input type="text" name="comment" ng-model="post['new_comment']" required />
+            </div>
+            <div class="form-actions ">
+                <button type="submit " ng-disabled="form.$invalid ">Comment</button>
+            </div>
+        </form>
+        <ul>
+            <li ng-repeat="comment in post.comments " data-id="{{comment.id}} ">
+                <div class="content "> {{ comment.content}}</div>
+                <div class="user "> {{ comment.username}}</div>
+                <div class="date "> {{ comment.datetime}}</div>
+            </li>
+        </ul>
+</ul>
