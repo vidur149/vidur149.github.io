@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify, abort, make_response
 from flask_httpauth import HTTPBasicAuth
 from datetime import datetime
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+CORS(app)
 auth = HTTPBasicAuth()
 
 users = [{
@@ -17,17 +19,15 @@ posts = [
         'username': 'vidur',  
         'datetime': datetime(2017, 5, 22, 15, 47, 57, 590729), 
         'content': 'iss api se hum ng ke logon se connect kar sakte hai',
-        'total_likes': 10
-    }
-]
-
-comments = [
-    {
-        'id': 1,
-        'post_id': 1,
-        'username': 'vidur',
-        'content': 'bhot badia',
-        'datetime': datetime(2017, 5, 22, 16, 47, 57, 590729),
+        'total_likes': 10,
+        'comments': [
+            {
+                'id': 1,
+                'username': 'vidur',
+                'content': 'bhot badia',
+                'datetime': datetime(2017, 5, 22, 16, 47, 57, 590729),
+            }
+        ]
     }
 ]
 
@@ -62,7 +62,17 @@ def signup():
         users.append(new_user)
         return jsonify({'result': True}), 201
     else:
+        return jsonify({'result': 'username already exsists'}), 400
+
+@app.route('/login', methods=['POST'])
+def login():
+    if not request.json or 'username' not in request.json or 'password' not in request.json:
         abort(400)
+    user = [user for user in users if user['username'] == request.json['username']]
+    if len(user) != 0 and user[0]['password'] == request.json['password']:    
+        return jsonify({'result': True})
+    else:
+        return jsonify({'result': 'username or password is incorrect'}), 401
 
 @app.route('/posts', methods=['POST'])
 @auth.login_required
@@ -82,7 +92,7 @@ def newPost():
         'total_likes': 0
     }
     posts.append(new_post)
-    return jsonify({'post': new_post}), 201
+    return jsonify({'post': new_post}), 200
 
 @app.route('/posts/<int:postid>/comment', methods=['POST'])
 @auth.login_required
@@ -92,18 +102,17 @@ def new_comment(postid):
     if len(post) != 0:
         if not request.json or 'content' not in request.json:
             abort(400)
-        if len(posts) != 0:
-            id = posts[-1]['id'] + 1
+        if len(post[0]['comments']) != 0:
+            id = post[0]['comments'][-1]['id'] + 1
         else:
             id = 0
         new_comment = {
             'id': id,
-            'post_id': postid,
             'username': username,
             'content': request.json['content'],
             'datetime': datetime.now(),
         }
-        comments.append(new_comment)
+        post[0]['comments'].append(new_comment)
         return jsonify({'comment': new_comment}), 200
     else:
         abort(400)
@@ -111,10 +120,9 @@ def new_comment(postid):
 @app.route('/posts/<int:postid>/comment', methods=['GET'])
 @auth.login_required
 def get_comments(postid):
-    print postid
-    Comments = [comment for comment in comments if comment['post_id'] == postid]
-    if len(Comments) != 0:
-        return jsonify({'comments': Comments})
+    post = [post for post in posts if post['id'] == postid]    
+    if len(post) != 0:
+        return jsonify({'comments': post[0]['comments']})
     else:
         abort(404)
 
