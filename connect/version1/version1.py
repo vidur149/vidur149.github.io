@@ -89,7 +89,8 @@ def newPost():
         'username': username,
         'content': request.json['content'],
         'datetime': datetime.now(),
-        'total_likes': 0
+        'total_likes': 0,
+        'comments': []
     }
     posts.append(new_post)
     return jsonify({'post': new_post}), 200
@@ -102,7 +103,7 @@ def new_comment(postid):
     if len(post) != 0:
         if not request.json or 'content' not in request.json:
             abort(400)
-        if len(post[0]['comments']) != 0:
+        if  len(post[0]['comments']) !=0:
             id = post[0]['comments'][-1]['id'] + 1
         else:
             id = 0
