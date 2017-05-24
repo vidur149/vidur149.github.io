@@ -1,0 +1,24 @@
+﻿<div class="container login-container">
+    <div class="row login-item">
+        <img class="col-md-6 col-md-offset-3" src="http://navgurukul.com/img/logo.png">
+        <div class="alert alert-danger text-center col-md-12" ng-show="vm.error">
+            {{vm.error}}
+        </div>
+        <form name="form" ng-submit="vm.login()" role="form" class="col-md-6 col-md-offset-3">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" ng-model="vm.username" class="form-control" required />
+                <div class="alert alert-danger" ng-show="form.username.$dirty && form.username.$error.required">Username is required</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+                <div class="alert alert-danger" ng-show="form.password.$dirty && form.password.$error.required">Password is required</div>
+            </div>
+            <div class="form-group">
+                <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="text-center btn btn-primary col-md-4 col-md-offset-1">Login</button>
+                <a href="/#/signup" class="btn btn-success col-md-4 col-md-offset-1">Signup</a>
+            </div>
+        </form>
+    </div>
+</div>

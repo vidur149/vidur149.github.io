@@ -1,0 +1,71 @@
+.login-container {
+    display: flex;
+    border: 2px solid cadetblue;
+    box-shadow: 2px 1px 11px cadetblue;
+    height: 80vh;
+    margin-top: 5%;
+    justify-content: center;
+    align-items: center;
+    background: aliceblue;
+}
+
+.login-item {
+    width: 100%;
+}
+
+.main-nav {
+    background: cornflowerblue;
+}
+
+.main-nav a {
+    color: white;
+}
+
+.main-nav a:hover {
+    color: black;
+}
+
+.post-action {
+    display: flex;
+}
+
+#home-list {
+    width: 100%;
+}
+
+.post-action div {
+    margin-right: 3%;
+}
+
+.content {
+    font-size: x-large;
+}
+
+.comment-content {
+    font-size: large;
+}
+
+.nested-comment-content {
+    font-size: initial;
+}
+
+.main-item {
+    margin-bottom: 4%;
+    background: aliceblue;
+}
+
+.home-row {
+    margin-top: 5%;
+}
+
+li {
+    list-style: none;
+}
+
+.main-comment {
+    background: blanchedalmond;
+}
+
+.main-nested-comment {
+    background: ivory;
+}
