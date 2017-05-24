@@ -2,7 +2,14 @@
     angular.module('Home', []);
 
     angular.module('Home').controller('HomeController', HomeController);
-
+    angular.module('Home').filter('dateFilter', function() {
+        return function(input) {
+            var date;
+            date = moment(input).utcOffset('+0000').format("MMMM Do YYYY, h:mm:ss");
+            console.log(date);
+            return date;
+        };
+    });
     HomeController.$inject = ['TimelineService'];
 
     function HomeController(TimelineService) {
