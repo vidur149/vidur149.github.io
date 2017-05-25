@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <script src="//use.edgefonts.net/maiden-orange.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="theme.css ">
+
+    <body ng-app="todo-app">
+        <div class="todo-wrapper" ng-controller="TodoCtrl">
+            <div class="total-todos">
+                <h2>Aapko {{getLeftTodos()}} kaam karne hai</h2>
+            </div>
+            <ul>
+                <li ng-repeat="todo in todos" ng-click=changeState(todo)>
+                    <span class="done-{{todo.done}}">{{todo.text}}
+          </span>
+                </li>
+            </ul>
+            <form class="todo-actions">
+                <input class="add-input" placeholder="Naya kaam yahan par likho..." type="text" ng-model="todoText" />
+                <button class="add-btn" ng-click="addTodo()">Add</button>
+            </form>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,31 @@
+body {
+    font-size: x-large;
+    font-family: maiden-orange, serif;
+    background: aqua;
+    text-transform: capitalize;
+}
+
+p {
+    font-family: maiden-orange, serif;
+}
+
+.header {
+    background: cornflowerblue;
+    border-radius: 15px;
+}
+
+.content1 {
+    background: darksalmon;
+    border-radius: 15px;
+}
+
+.content2 {
+    background: greenyellow;
+    border-radius: 15px;
+}
+
+.dabba-1,
+.dabba-2 {
+    background: bisque;
+    border-radius: 15px;
+}

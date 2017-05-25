@@ -1,0 +1,11 @@
+<div class="product-card" ng-transclude>
+    <h2>{{product.name}}
+        <span>
+              <button class="cart" ng-click="add(product)">Add To Cart</button>
+            </span>
+    </h2>
+    <div class="product-details">
+        <p>{{product.price | currency}}</p>
+        <p>{{product.type}}</p>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>ecom-2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="theme.css ">
+</head>
+
+<body ng-app="ecom" ng-controller="myCtrl" class="main">
+    <div class="products">
+        <ul>
+            <div class="header">
+                <h1> Products You Can Buy</h1>
+            </div>
+            <li ng-repeat="product in products ">
+                <div class="product-card">
+                    <h2>{{product.name}}
+                        <span>
+              <button class="cart" ng-click="addToCart(product)">Add To Cart</button>
+            </span>
+                    </h2>
+                    <div class="product-details">
+                        <p>{{product.price | currency:"₹"}}</p>
+                        <p>{{product.type}}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="cart">
+        <ul>
+            <div class="header">
+                <h1>Products In Cart</h1>
+                <h3>Cart Value {{cartValue() | currency:"₹"}}</h3>
+            </div>
+            <li ng-repeat="product in cart track by $index">
+                <div class="product-card">
+                    <h2>{{product.name}} <span>
+            <button class="cart" ng-click="removeFromCart(product)">Remove From Cart</button>
+            </span>
+                    </h2>
+                    <div class="product-details">
+                        <p>{{product.price | currency:"₹"}}</p>
+                        <p>{{product.type}}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

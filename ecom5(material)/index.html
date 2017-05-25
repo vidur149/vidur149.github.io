@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>ecom-5</title>
+    <!--Material stylesheet-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <!--Angular Libraries-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
+
+    <!--Material script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="theme.css ">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body ng-app="ecom" ng-controller="myCtrl as vm">
+    <md-toolbar class="md-theme-indigo" layout="row" layout-align="center center">
+        <h1 class="md-toolbar-tools" flex>ECOM</h1>
+    </md-toolbar>
+    <md-content class="main">
+        <div class="products">
+            <ul>
+                <div class="header">
+                    <h1> Products You Can Buy</h1>
+                    <form md-theme="default">
+                        <md-input-container>
+                            <label>Search:</label>
+                            <input ng-model="test" placeholder="products search kare">
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Sort By:</label>
+                            <md-select ng-model="vm.orderByMe">
+                                <md-option value="name">Name (a-z)</md-option>
+                                <md-option value="price">Price(l-h)</md-option>
+                                <md-option value="type">category</md-option>
+                            </md-select>
+                        </md-input-container>
+
+                    </form>
+                </div>
+                <li ng-repeat="product in vm.products | orderBy: vm.orderByMe | filter:test">
+                    <product-card product="product" add="vm.addToCart(product)" class="card"></product-card>
+                </li>
+            </ul>
+        </div>
+        <div class="cart ">
+            <ul>
+                <div class="header ">
+                    <h1>Products In Cart</h1>
+                    <h3>Cart Value {{vm.cartValue() | currency}}</h3>
+                </div>
+                <li ng-repeat="product in vm.cart">
+                    <md-card md-theme="dark-color" class="card">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">{{product.name}}</span>
+                                <span class="md-subhead">{{product.type}}</span>
+                            </md-card-title-text>
+                            <md-card-title-media>
+                                <div class="md-media-md card-media"></div>
+                            </md-card-title-media>
+                        </md-card-title>
+                        <md-card-actions layout="row" layout-align="space-around center">
+                            <md-input-container layout="row">
+                                <span><label>Quantity</label></span>
+                                <input ng-model="product.qty">
+                            </md-input-container>
+                            <md-button ng-click="vm.removeFromCart(product) ">Remove From Cart</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </li>
+            </ul>
+        </div>
+    </md-content>
+</body>
+
+</html>
