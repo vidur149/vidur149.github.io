@@ -15,14 +15,21 @@
     <script src="http://use.edgefonts.net/aclonica.js"></script>
     <script src="modules/auth/controllers.js"></script>
     <script src="modules/auth/services.js"></script>
-    <script src="modules/home/controllers.js"></script>
-    <script src="modules/home/service.js"></script>
+    <script src="ng-file-upload.min.js"></script>
+    <script src="modules/home/home.module.js"></script>
+    <script src="modules/home/profile.controller.js"></script>
+    <script src="modules/home/home.controller.js"></script>
+    <script src="modules/home/message.controller.js"></script>
+    <script src="modules/home/timeline.service.js"></script>
+    <script src="modules/home/message.service.js"></script>
     <script src="app.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body ng-app="connect">
-    <div ng-view></div>
+<body ng-app="connect" class="container">
+    <div class="row">
+        <div ng-view class="md-col-6 md-col-offset-3"></div>
+    </div>
 </body>
 
 </html>

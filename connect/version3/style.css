@@ -38,7 +38,7 @@
 }
 
 .content {
-    font-size: x-large;
+    font-size: large;
 }
 
 .comment-content {
@@ -54,8 +54,9 @@
     background: aliceblue;
 }
 
-.home-row {
-    margin-top: 5%;
+.home-row,
+.message-row {
+    margin-top: 8%;
 }
 
 li {
@@ -68,4 +69,96 @@ li {
 
 .main-nested-comment {
     background: ivory;
+}
+
+textarea.form-control.custom-control::placeholder {
+    font-size: large;
+    font-weight: bolder;
+    color: black;
+}
+
+.nested-comment-form {
+    margin-top: 10px;
+    padding-left: 40px;
+}
+
+.user {
+    font-size: x-large;
+    text-transform: capitalize;
+}
+
+img.thumb {
+    width: 100px;
+    height: 100px;
+}
+
+.message-row {
+    display: flex;
+}
+
+.people-list {
+    flex: 30%;
+}
+
+.conversation {
+    flex: 70%;
+}
+
+.conversation ul {
+    display: flex;
+    padding: 3% 4%;
+    background: #243640;
+    height: 80vh;
+    flex-direction: column;
+}
+
+.message.secondPerson {
+    background: #dcf8c6;
+    align-self: flex-end;
+    box-sizing: border-box;
+    border: 2px;
+    border-radius: 20px;
+}
+
+.active {
+    background: gainsboro;
+}
+
+.people-list-item {
+    cursor: pointer;
+}
+
+.message {
+    background: white;
+    align-self: flex-start;
+    box-sizing: border-box;
+    border: 2px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.message-date {
+    font-size: small;
+    font-style: italic;
+    color: gray;
+}
+
+.message-form {
+    display: flex;
+}
+
+.item-1 {
+    flex: 90%;
+}
+
+.item-1 input {
+    border: 1px be solid;
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.item-2 {
+    flex: 10%;
 }

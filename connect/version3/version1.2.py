@@ -5,19 +5,39 @@ import os
 from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = '/ng/flask_projects/connect'
+UPLOAD_FOLDER = 'uploads/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 CORS(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 auth = HTTPBasicAuth()
 
-users = [{
-    'id': 0,
-    'username': 'vidur',
-    'password': 'vidur',
-    'dp': ''
-}]
+users = [
+    {
+        'id': 0,
+        'username': 'vidur',
+        'password': 'vidur',
+        'dp': ''
+    },
+    {
+        'id': 1,
+        'username': 'navgurukul',
+        'password': 'ng',
+        'dp': ''
+    },
+     {
+        'id': 2,
+        'username': 'rahul',
+        'password': 'rahul',
+        'dp': ''
+    },
+    {
+        'id': 3,
+        'username': 'dhannu',
+        'password': 'dhannu',
+        'dp': ''
+    }
+]
 
 posts = [
     {
@@ -61,6 +81,27 @@ messages = [
         'receiver': 'vidur',
         'content': 'Learning flask?',
         'datetime': datetime(2017, 5, 22, 17, 58, 57, 590729),
+    },
+    {
+        'id': 3,
+        'sender': 'rahul',
+        'receiver': 'vidur',
+        'content': 'Hey??',
+        'datetime': datetime(2017, 5, 22, 19, 58, 57, 590729),
+    },
+    {
+        'id': 4,
+        'sender': 'navgurukul',
+        'receiver': 'vidur',
+        'content': 'Yes! Learning Flask',
+        'datetime': datetime(2017, 5, 22, 20, 58, 57, 590729),
+    },
+    {
+        'id': 5,
+        'sender': 'rahul',
+        'receiver': 'vidur',
+        'content': 'there??',
+        'datetime': datetime(2017, 5, 22, 21, 58, 57, 590729),
     }
 ]
 
@@ -222,14 +263,15 @@ def upload_dp():
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         user[0]['dp'] = url_for('uploaded_file', filename=filename)
-            
+        return jsonify({'result': True}), 201
+    else:
+        return jsonify({'result': 'file format not supported'}), 400            
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-
-    
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)    
     abort(404)
+
 @app.route('/messages/<string:receiver>', methods=['POST'])
 @auth.login_required
 def new_message(receiver):
@@ -259,12 +301,48 @@ def new_message(receiver):
 @auth.login_required
 def get_messages(receiver):
     sender = auth.username()
-    Receiver = [user for user in users if user['username'] == receiver]
-    if len(Receiver) != 0:
+    f = False
+    for user in users:
+        if user['username'] == receiver:
+            f = True
+            break
+
+    if f:
         Messages = [message for message in messages if ( message['sender'] == sender and message['receiver'] == receiver) or (message['sender'] == receiver and message['receiver'] == sender)]
         return jsonify({'messages': Messages})
     else:
         abort(400)
 
+@app.route('/users', methods=['GET'])
+@auth.login_required
+def get_users():
+    username = auth.username()
+    Users = {
+        'users': []
+    }
+    for user in users:
+        if user['username'] != username:
+            Users['users'].append(user['username'])
+    return jsonify(Users)    
+# @app.route('/messages', methods=['GET'])
+# @auth.login_required
+# def get_people():
+#     sender = auth.username()
+#     chats = {
+#         'people': []
+#     }
+
+#     for message in messages:
+#         print message
+#         if message['sender'] == sender:
+#             if message['receiver'] not in chats['people']:
+#                 chats['people'].append(message['receiver'])
+#         if message['receiver'] == sender:
+#             if message['sender'] not in chats['people']:            
+#                 chats['people'].append(message['sender'])        
+#     if sender in chats['people']:
+#         chats['people'].remove(sender)
+#     return jsonify(chats)
+    
 if __name__ == '__main__':
     app.run(debug=True)

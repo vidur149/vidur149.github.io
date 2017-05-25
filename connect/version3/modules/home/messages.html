@@ -1,0 +1,37 @@
+﻿<nav class="navbar navbar-fixed-top main-nav">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/home/messages">Messages</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/home">HOME</a></li>
+            <li><a href="#/home/me">My Profile</a></li>
+            <li><a href="#/login">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid home-container">
+    <div class="row message-row">
+        <div class="people-list">
+            <ul class="w3-ul w3-card-4">
+                <li ng-repeat="person in vm.peopleList" ng-class="{ active: person == vm.selectedPerson }" ng-click="vm.getConversation(person)" class="w3-padding-16 people-list-item">{{person}}</li>
+            </ul>
+        </div>
+        <div class="conversation">
+            <ul class="w3-ul w3-card-4">
+                <li ng-repeat="message in vm.conversation" class="message w3-padding-16" ng-class="{ secondPerson: message.receiver == vm.selectedPerson }">
+                    <div>{{ message.content }} </div>
+                    <span class="message-date">{{message.datetime | dateFilter }}</span>
+                </li>
+            </ul>
+            <form name="form" class="form-inline message-form" ng-submit="vm.sendMessage(vm.message, vm.selectedPerson)" role="form ">
+                <div class="form-group item-1">
+                    <input type="text " name="message" placeholder="Enter a Message..?" ng-model="vm.message" required />
+                </div>
+                <div class="form-group item-2">
+                    <button type="submit" class="btn-lg btn-success" ng-disabled="form.$invalid ">send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

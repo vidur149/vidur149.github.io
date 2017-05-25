@@ -1,12 +1,11 @@
 (function() {
     angular.module('auth');
     angular.module('Home');
-    // angular.module('angularFileUpload');
     angular.module("connect", [
         'auth',
         'Home',
         'ngRoute',
-        // 'angularFileUpload'
+        'ngFileUpload'
     ]);
 
     angular.module("connect").config(config);

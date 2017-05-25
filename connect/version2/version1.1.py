@@ -5,7 +5,7 @@ import os
 from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = '/ng/flask_projects/connect'
+UPLOAD_FOLDER = 'uploads/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 CORS(app)
@@ -111,6 +111,13 @@ def newPost():
     posts.append(new_post)
     return jsonify({'post': new_post}), 201
 
+@app.route('/user', methods=['GET'])
+@auth.login_required
+def get_user():
+    username = auth.username()
+    user = [user for user in users if user['username'] == username]
+    return jsonify({'user': user[0]})
+
 @app.route('/allposts', methods=['GET'])
 @auth.login_required
 def get_all_posts():
@@ -194,7 +201,9 @@ def upload_dp():
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         user[0]['dp'] = url_for('uploaded_file', filename=filename)
-            
+        return jsonify({'result': True}), 201
+    else:
+        return jsonify({'result': 'file format not supported'}), 400
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):

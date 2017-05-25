@@ -6,7 +6,6 @@
         return function(input) {
             var date;
             date = moment(input).utcOffset('+0000').format("MMMM Do YYYY, h:mm:ss");
-            console.log(date);
             return date;
         };
     });
@@ -69,9 +68,9 @@
     }
     angular.module('Home').controller('ProfileController', ProfileController);
 
-    ProfileController.$inject = ['TimelineService'];
+    ProfileController.$inject = ['TimelineService', 'Upload'];
 
-    function ProfileController(TimelineService) {
+    function ProfileController(TimelineService, Upload) {
         var vm = this;
         vm.dataLoading = false;
         vm.myposts = [];
@@ -79,6 +78,24 @@
         TimelineService.GetMyPosts().then(function(response) {
             vm.myposts = response;
         });
+
+        vm.uploadPic = function(file) {
+            vm.picFile = "";
+            file.upload = Upload.upload({
+                url: 'http://localhost:5000/user/upload/profilepicture',
+                data: { file: file },
+            });
+
+            file.upload.then(function(response) {
+                if (response.data['result'] === true) {
+                    vm.message = "successfully uploaded"
+                }
+            }, function(response) {
+                if (response.status > 0) {
+                    vm.message = response.data['result'];
+                }
+            });
+        }
 
         vm.post = function() {
             TimelineService.PostPosts(vm.content).then(function(response) {
@@ -125,12 +142,5 @@
                 }
             });
         };
-
-
-        vm.upload = function() {
-            TimelineService.Upload
-        };
     }
-
-
 })();

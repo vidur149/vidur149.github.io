@@ -1,8 +1,8 @@
 (function() {
     angular.module('Home').factory('TimelineService', TimelineService);
-    TimelineService.$inject = ['$http', '$rootScope', '$cookieStore', '$q'];
+    TimelineService.$inject = ['$http', '$rootScope', '$cookieStore', '$q', 'Upload'];
 
-    function TimelineService($http, $rootScope, $cookieStore, $q) {
+    function TimelineService($http, $rootScope, $cookieStore, $q, Upload) {
         service = {};
         service.GetPosts = function() {
             var defer = $q.defer();
@@ -66,6 +66,25 @@
                 defer.resolve(response.data['comment']);
             }, function(error) {
                 defer.resolve(error);
+            });
+            return defer.promise;
+        }
+
+        service.Upload = function(file) {
+            var defer = $q.defer();
+            file.upload = Upload.upload({
+                url: 'http://localhost:5000/user/upload/profilepicture',
+                data: { file: file },
+            });
+
+            file.upload.then(function(response) {
+                if (response.data['result'] === true) {
+                    defer.resolve("Successfully Uploaded");
+                }
+            }, function(response) {
+                if (response.status > 0) {
+                    defer.resolve(response.data['result']);
+                }
             });
             return defer.promise;
         }

@@ -12,6 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="ng-file-upload.min.js"></script>
     <script src="http://use.edgefonts.net/aclonica.js"></script>
     <script src="modules/auth/controllers.js"></script>
     <script src="modules/auth/services.js"></script>
@@ -21,8 +22,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body ng-app="connect">
-    <div ng-view></div>
+<body ng-app="connect" class="container">
+    <div class="row">
+        <div ng-view class="md-col-6 md-col-offset-3"></div>
+    </div>
 </body>
 
 </html>

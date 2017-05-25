@@ -1,12 +1,11 @@
 (function() {
     angular.module('auth');
     angular.module('Home');
-    // angular.module('angularFileUpload');
     angular.module("connect", [
         'auth',
         'Home',
         'ngRoute',
-        // 'angularFileUpload'
+        'ngFileUpload'
     ]);
 
     angular.module("connect").config(config);
@@ -20,6 +19,11 @@
                 templateUrl: 'modules/auth/login.html',
                 controllerAs: 'vm'
             })
+            .when('/signup', {
+                controller: 'SignupController',
+                templateUrl: 'modules/auth/signup.html',
+                controllerAs: 'vm'
+            })
             .when('/home', {
                 controller: 'HomeController',
                 templateUrl: 'modules/home/home.html',
@@ -30,9 +34,9 @@
                 templateUrl: 'modules/home/profile.html',
                 controllerAs: 'vm'
             })
-            .when('/signup', {
-                controller: 'SignupController',
-                templateUrl: 'modules/auth/signup.html',
+            .when('/home/messages', {
+                controller: 'MessageController',
+                templateUrl: 'modules/home/messages.html',
                 controllerAs: 'vm'
             })
             .otherwise({ redirectTo: '/' });
