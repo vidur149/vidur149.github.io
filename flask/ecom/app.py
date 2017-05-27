@@ -148,22 +148,7 @@ def add_cart(p_id):
   product_list.append(new_product)
   new_cart = mongo.db.carts.update({"username": username},{"username": username, "products": product_list})
   return jsonify({"cart": new_cart})  
-  
-  # car = mongo.db.carts.find_one({"username": username, "products.['_id']": ObjectId(p_id)})
-  # print car
-  # if mongo.db.carts.find_one({"username": username, "products.$.['_id']": ObjectId(p_id)}):
-  #   print "hey"
-  #   mongo.db.carts.update({"username": username, "products.$.['_id']": ObjectId(p_id)}, {"$inc": {"products.$.qty": 1}})
-    # mongo.db.carts.findAndModify({
-    # "query": '{"username":username}, {"products": {"$elemMatch": {"_id": ObjectId(p_id)}}}',
-    # "update": { "$inc": {"product.$.qty": 1}}
-    # })
-    # mongo.db.carts.update({"username":username},{"products":{"$elemMatch": { 
-    # "_id": ObjectId(p_id) }product['name'], "price": product['price'], "qty": 0, "p_id": product['_id']}}})    
-  # else:
-  #   print "hettt"
-  #   mongo.db.carts.update({"username":username},{"$push":{"products":{"name": product['name'], "price": product['price'], "qty": 1, "p_id": product['_id']}}})  
-  # return jsonify({"result": True})
+# comment
 
 @app.route('/cart/remove/<string:p_id>', methods=['DELETE'])
 @auth.login_required
@@ -205,3 +190,19 @@ def checkout():
 
 if __name__ == '__main__':
   app.run(debug=True)
+
+   # car = mongo.db.carts.find_one({"username": username, "products.['_id']": ObjectId(p_id)})
+  # print car
+  # if mongo.db.carts.find_one({"username": username, "products.$.['_id']": ObjectId(p_id)}):
+  #   print "hey"
+  #   mongo.db.carts.update({"username": username, "products.$.['_id']": ObjectId(p_id)}, {"$inc": {"products.$.qty": 1}})
+    # mongo.db.carts.findAndModify({
+    # "query": '{"username":username}, {"products": {"$elemMatch": {"_id": ObjectId(p_id)}}}',
+    # "update": { "$inc": {"product.$.qty": 1}}
+    # })
+    # mongo.db.carts.update({"username":username},{"products":{"$elemMatch": { 
+    # "_id": ObjectId(p_id) }product['name'], "price": product['price'], "qty": 0, "p_id": product['_id']}}})    
+  # else:
+  #   print "hettt"
+  #   mongo.db.carts.update({"username":username},{"$push":{"products":{"name": product['name'], "price": product['price'], "qty": 1, "p_id": product['_id']}}})  
+  # return jsonify({"result": True})
