@@ -1,0 +1,9 @@
+Mongo Db
+In mongo, there is a database in which certain collections are there and in these collections we have documents.
+These documents are json like objects.
+There can be 2 different douemnts in one collection but then we have to be a little cautious while accessing the documents.
+find_one returns a dictionary whereas find always returns a list of dictionaries...
+
+
+we need to import dumps from bson.json_util to serealise the cursor data returned by mongo.
+Further to convert this data into JSON we have to set the mimetype of the response as application/json
