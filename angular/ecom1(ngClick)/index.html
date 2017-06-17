@@ -1,21 +1,21 @@
 <!doctype HTML>
-<html ng-app="ecom">
+<html ng-app="counter">
 
 <head>
-    <title>ECOM</title>
+    <title>Counter</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="app.js"></script>
     <link rel="stylesheet" href="theme.css ">
     <script src="https://use.edgefonts.net/maiden-orange.js"></script>
 </head>
 
-<body ng-controller="myCtrl as vm">
-    <div ng-click="vm.classChange()" class="{{vm.backColor}}">
-        <h1>{{ vm.message }} </h1>
+<body ng-controller="myCtrl">
+    <div ng-click="classChange()" class="{{backColor}}">
+        <h1>{{ message }} </h1>
         <h3> Click me to change color</h3>
     </div>
-    <div ng-click="vm.increment()" class="inc">
-        <h1>{{ vm.counter }}</h1>
+    <div ng-click="increment()" class="inc">
+        <h1>{{ counter }}</h1>
         <h3>click me to change value</h3>
     </div>
 </body>
