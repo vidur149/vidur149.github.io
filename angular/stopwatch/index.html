@@ -1,0 +1,23 @@
+<!doctype HTML>
+<html ng-app="counter">
+
+<head>
+    <title>Counter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="theme.css ">
+    <script src="https://use.edgefonts.net/maiden-orange.js"></script>
+</head>
+
+<body ng-controller="myCtrl">
+    <div class="{{state}} std-container">
+        <h1 class="counter">{{ time() }} </h1>
+        <div class="btn-container std-container">
+            <h3 ng-click="startWatch()" class="inc-btn std-btn">Start</h3>
+            <h3 ng-click="stopWatch()" class="dec-btn std-btn">Stop</h3>
+            <h3 ng-click="resetWatch()" class="resest-btn std-btn">Reset</h3>
+        </div>
+    </div>
+</body>
+
+</html>
