@@ -6,6 +6,10 @@ body {
     font-family: maiden-orange, serif;
 }
 
+.timer {
+    margin: 0;
+}
+
 .std-container {
     display: flex;
     /*justify-content: center;*/
