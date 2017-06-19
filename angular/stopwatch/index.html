@@ -2,7 +2,7 @@
 <html ng-app="counter">
 
 <head>
-    <title>Counter</title>
+    <title>stopWatch</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="app.js"></script>
     <link rel="stylesheet" href="theme.css ">
@@ -10,7 +10,7 @@
 </head>
 
 <body ng-controller="myCtrl">
-    <div class="{{state}} std-container">
+    <div class="{{state}} std-container outer-container">
         <h1 class="counter">{{ time() }} </h1>
         <div class="btn-container std-container">
             <h3 ng-click="startWatch()" class="inc-btn std-btn">Start</h3>

@@ -7,13 +7,17 @@ body {
 }
 
 .std-container {
-    flex: 1;
     display: flex;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
     flex-direction: column;
     font-family: maiden-orange, serif;
     font-size: x-large;
+}
+
+.outer-container {
+    height: 100%;
+    padding: 10%;
 }
 
 .reset {
@@ -29,6 +33,7 @@ body {
 }
 
 .btn-container {
+    margin-top: 10%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -40,8 +45,4 @@ body {
     background: floralwhite;
     padding: 20px;
     border-radius: 37px;
-}
-
-.counter {
-    margin-top: 10%;
 }

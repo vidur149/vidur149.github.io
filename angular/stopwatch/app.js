@@ -53,6 +53,7 @@ angular.module('counter', [])
         };
 
         $scope.resetWatch = function() {
+            $scope.stopWatch();
             $scope.state = 'reset';
             $window.localStorage.setItem('watchValue', '00:00:00');
         }
