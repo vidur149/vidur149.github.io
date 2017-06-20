@@ -1,0 +1,38 @@
+<!doctype HTML>
+<html ng-app="calc">
+
+<head>
+    <title>Counter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="theme.css ">
+    <script src="https://use.edgefonts.net/maiden-orange.js"></script>
+</head>
+
+<body ng-controller="scope1" class="main">
+    <form>
+        <div class="form-group">
+            <label>input1: </label>
+            <input ng-model="num1" type="number" placeholder="enter the first number">
+        </div>
+        <div class="form-group">
+            <label>Operation:</label>
+            <select ng-model="operator" ng-change="callForAction()"> 
+                    <option value="add">Add</option>         
+                    <option value="sub">Subtract</option>
+                    <option value="multi">Multiply</option> 
+                    <option value="mod">Modulus</option> 
+                    <option value="divis">Divide</option> 
+                </select>
+        </div>
+        <div class="form-group">
+            <label>input2: </label>
+            <input ng-model="num2" type="number" placeholder="enter the second number">
+        </div>
+    </form>
+    <div class="cntrlr2">
+        <p>the {{action}} is {{result}}</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: pink;
+    flex-direction: column;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+form {
+    padding: 40px;
+    display: flex;
+    justify-content: space-around;
+    width: 36%;
+    text-transform: capitalize;
+    background: lightblue;
+    border-radius: 16px;
+}
+
+input[type="number"] {
+    background: beige;
+    text-transform: capitalize;
+    font-size: large;
+}
+
+.cntrlr2 {
+    margin-top: 5px;
+    padding: 10px;
+    width: 48%;
+    display: flex;
+    background: aliceblue;
+    justify-content: space-around;
+    border-radius: 16px;
+}
+
+select {
+    border: none;
+    padding: 2px;
+    background: beige;
+    text-transform: capitalize;
+    font-size: large;
+}
