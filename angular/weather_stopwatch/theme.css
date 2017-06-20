@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    font-family: maiden-orange, serif;
+}
+
+.stopwatch,
+.weather {
+    width: 50%;
+    height: 100%;
+}
+
+.timer {
+    /* margin: 31px; */
+    /* height: 50%; */
+    /* justify-content: center; */
+    /* display: flex; */
+    /* align-items: center; */
+}
+
+.std-container {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    flex-direction: column;
+    font-family: maiden-orange, serif;
+    font-size: x-large;
+}
+
+.outer-container {
+    height: 100%;
+}
+
+.reset {
+    background-color: skyblue
+}
+
+.start {
+    background-color: lightgreen;
+}
+
+.stop {
+    background-color: indianred;
+}
+
+.btn-container {
+    /* margin-top: 10%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.std-btn {
+    cursor: pointer;
+    background: floralwhite;
+    padding: 20px;
+    border-radius: 37px;
+}
+
+.sw-header {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    justify-content: center;
+}
+
+.weather {
+    background: darksalmon;
+}
+
+.weather.morning {
+    background: url(http://clipart-library.com/images/piodbB7bT.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.weather.night {
+    background: url(http://www.fg-a.com/wallpapers/moon-clouds.jpg);
+    color: wheat;
+    background-size: 100%;
+}
+
+.weather-des {
+    display: flex;
+}
+
+table {
+    width: 50%;
+    height: 30%;
+    text-align: center;
+    border: 1px solid black;
+    table-layout: fixed;
+}
+
+.std-container.weather-container {
+    justify-content: center;
+    height: 100%;
+}
+
+td {
+    font-size: larger;
+}
+
+
+/*.after*/

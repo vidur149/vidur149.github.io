@@ -1,0 +1,58 @@
+<!doctype HTML>
+<html ng-app="counter">
+
+<head>
+    <title>stopWatch</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="theme.css ">
+    <script src="https://use.edgefonts.net/maiden-orange.js"></script>
+</head>
+
+<body>
+    <div ng-controller="Stopwatch" class="stopwatch">
+        <div class="{{state}} std-container outer-container">
+            <div class="sw-header">
+                <h1 class="timer">Stopwatch </h1>
+                <h1 class="timer">{{ time() }} </h1>
+            </div>
+            <div class="btn-container std-container">
+                <h3 ng-click="startWatch()" class="inc-btn std-btn">Start</h3>
+                <h3 ng-click="stopWatch()" class="dec-btn std-btn">Stop</h3>
+                <h3 ng-click="resetWatch()" class="resest-btn std-btn">Reset</h3>
+            </div>
+        </div>
+    </div>
+    <div ng-controller="Weather" class="weather {{state}}">
+        <div class="std-container weather-container">
+            <h1> Weather in {{response.name}}, {{response.sys.country}} </h1>
+            <h2>
+                {{response.main.temp}} °C
+            </h2>
+            <span>{{date | date:'medium'}}</span>
+            <div class="weather-des">
+                <p> {{response.weather[0].description}} </p>
+                <img src="{{img_src}}" alt="weather-logo">
+            </div>
+            <h3>
+                Details
+            </h3>
+            <table>
+                <tr>
+                    <td>Feels Like</td>
+                    <td>{{response.main.temp}} °C</td>
+                </tr>
+                <tr>
+                    <td>Wind</td>
+                    <td>{{response.wind.speed}} m/s</td>
+                </tr>
+                <tr>
+                    <td>Humidity</td>
+                    <td>{{response.main.humidity}} %</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
