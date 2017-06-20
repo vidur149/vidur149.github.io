@@ -61,7 +61,15 @@ angular.module('counter', [])
     }]);
 
 angular.module('counter')
-    .controller("Weather", ['$scope', '$http', function($scope, $http) {
+    .controller("Weather", ['$scope', '$http', '$sceDelegateProvider', function($scope, $http, $sceDelegateProvider) {
+
+        $sceDelegateProvider.resourceUrlWhitelist([
+            // Allow same origin resource loads.
+            'self',
+            // Allow loading from our assets domain.  Notice the difference between * and **.
+            'http://api.openweathermap.org/data/2.5/weather/**'
+        ]);
+
 
         // get todays date and set the state according to hour of the day
         $scope.date = new Date();
