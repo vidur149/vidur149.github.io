@@ -60,17 +60,18 @@ angular.module('counter', [])
         }
     }]);
 
+angular.mdoule('counter').config(function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+        // Allow same origin resource loads.
+        'self',
+        'http://api.openweathermap.org/data/2.5/weather/**'
+        // Allow loading from our assets domain.  Notice the difference between * and **.
+        // 'http://srv*.assets.example.com/**'
+    ]);
+});
+
 angular.module('counter')
-    .controller("Weather", ['$scope', '$http', '$sceDelegateProvider', function($scope, $http, $sceDelegateProvider) {
-
-        $sceDelegateProvider.resourceUrlWhitelist([
-            // Allow same origin resource loads.
-            'self',
-            // Allow loading from our assets domain.  Notice the difference between * and **.
-            'http://api.openweathermap.org/data/2.5/weather/**'
-        ]);
-
-
+    .controller("Weather", ['$scope', '$http', function($scope, $http) {
         // get todays date and set the state according to hour of the day
         $scope.date = new Date();
         console.log($scope.date.getHours());
