@@ -89,7 +89,7 @@ angular.module('counter')
             var api_key = '&appid=c745ee805737efda1aecd6d7545d8fe0&units=metric';
             var weather_endpoint = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + api_key;
 
-            $http.get(weather_endpoint).then(function(response) {
+            $http.jsonp(weather_endpoint).then(function(response) {
                 $scope.response = response.data;
                 $scope.img_src = "https://openweathermap.org/img/w/" + $scope.response.weather[0].icon + '.png';
                 console.log($scope.response);
