@@ -13,7 +13,7 @@
     <form>
         <div class="form-group">
             <label>input1: </label>
-            <input ng-model="num1" type="number" placeholder="enter the first number">
+            <input ng-model="num1" type="number" placeholder="enter the first number" ng-change="callForAction()">
         </div>
         <div class="form-group">
             <label>Operation:</label>
@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <label>input2: </label>
-            <input ng-model="num2" type="number" placeholder="enter the second number">
+            <input ng-model="num2" type="number" placeholder="enter the second number" ng-change="callForAction()">
         </div>
     </form>
     <div class="cntrlr2">

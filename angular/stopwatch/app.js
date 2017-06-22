@@ -41,7 +41,7 @@ angular.module('counter', [])
                 $window.localStorage.setItem('watchValue', $scope.watchValue);
             };
 
-            $scope.myInterval = $interval($scope.onInterval, 1000);
+            $scope.myInterval = $interval($scope.onInterval, 100);
 
         };
 
