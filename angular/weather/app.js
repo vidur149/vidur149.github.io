@@ -1,9 +1,8 @@
 (function() {
-    angular.module('counter', [])
+    angular.module('counter', ['vsGoogleAutocomplete'])
         .controller("Weather", ['$scope', '$http', function($scope, $http) {
             // get todays date and set the state according to hour of the day
             $scope.date = new Date();
-            console.log($scope.date.getHours());
             var hrs = $scope.date.getHours();
             // var hrs = $scope.data.getHours();
             var state = '';
