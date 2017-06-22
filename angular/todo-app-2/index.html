@@ -20,7 +20,7 @@
             <button ng-click="vm.addTask()">Add</button>
         </form>
         <ul id="list">
-            <li ng-repeat="task in vm.tasks" data-id="{{task.id}}">
+            <li ng-repeat="task in vm.tasks">
                 <div class="title"> {{ task.title}}</div>
                 <div ng-click="vm.removeTask(task.id)" class="remove ">X</div>
             </li>
