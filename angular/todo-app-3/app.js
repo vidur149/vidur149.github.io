@@ -1,5 +1,5 @@
 (function() {
-    angular.module("todo", []);
+    angular.module("todo", ['angularMoment']);
     angular.module("todo").controller("myCtrl", myCtrl);
     myCtrl.$inject = ['$http'];
 

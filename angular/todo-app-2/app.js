@@ -7,11 +7,13 @@
         var self = this;
         self.tasks = [{
                 'title': 'Complete the Html Code',
-                'id': 1
+                'id': 1,
+                'createdDate': new Date(1498212323393)
             },
             {
                 'title': 'Complete the JS code',
-                'id': 2
+                'id': 2,
+                'createdDate': new Date(1498212323399)
             }
         ];
         self.title;
@@ -34,11 +36,16 @@
                 id = len === 0 ? 0 : self.tasks[len - 1]['id'] + 1;
                 var task = {
                     'title': self.title,
-                    'id': id
+                    'id': id,
+                    'createdDate': new Date()
                 };
                 self.tasks.push(task);
                 self.title = '';
             }
+        };
+        self.order = '';
+        self.orderByDate = function() {
+            self.order = self.order == 'title' ? '' : 'title';
         };
     }
 })();

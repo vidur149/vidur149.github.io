@@ -92,6 +92,7 @@ input {
     display: flex;
     justify-content: flex-end;
     color: darkcyan;
+    text-transform: lowercase;
 }
 
 .controls {

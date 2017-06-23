@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="style.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="app.js"></script>
+    <script src="moment.js"></script>
+    <script src="angular-moment.js"></script>
+
     <script src="//use.edgefonts.net/aclonica.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -26,7 +29,7 @@
         <ul id="list">
             <li ng-repeat="task in vm.tasks | filter:vm.query |  orderBy: vm.order">
                 <div class="title"> {{ task.title}}</div>
-                <span class="time">{{task.createdDate | date:'medium'}}</span>
+                <span class="time" am-time-ago="task.createdDate"></span>
                 <div ng-click="vm.removeTask(task.id)" class="remove ">X</div>
             </li>
         </ul>

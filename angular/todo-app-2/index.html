@@ -18,10 +18,15 @@
         <form class="todo-form">
             <input type="text" placeholder="enter task title" name="title" ng-model="vm.title"></input>
             <button ng-click="vm.addTask()">Add</button>
+            <div class="controls">
+                <input type="text" placeholder="search task" name="title" ng-model="vm.query"></input>
+                <button ng-click="vm.orderByDate()">Order By Title</button>
+            </div>
         </form>
         <ul id="list">
-            <li ng-repeat="task in vm.tasks">
+            <li ng-repeat="task in vm.tasks | filter:vm.query |  orderBy: vm.order">
                 <div class="title"> {{ task.title}}</div>
+                <span class="time">{{task.createdDate | date:'medium'}}</span>
                 <div ng-click="vm.removeTask(task.id)" class="remove ">X</div>
             </li>
         </ul>

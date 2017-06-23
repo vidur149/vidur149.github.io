@@ -1,40 +1,44 @@
-var app = angular.module("todo-app", []);
+(function() {
+    angular.module("todo", []);
+    angular.module("todo").controller("myCtrl", myCtrl);
+    myCtrl.$inject = ['$http'];
 
-app.controller("TodoCtrl", function($scope) {
-
-    $scope.todos = [{
-        text: 'Learn AngularJS',
-        done: false
-    }, {
-        text: 'Build an app',
-        done: false
-    }];
-
-    $scope.todoText = '';
-
-    $scope.getLeftTodos = function() {
-        var count = 0;
-        for (var i = 0; i < $scope.todos.length; i++) {
-            console.log($scope.todos[i]);
-            if ($scope.todos[i].done === false) {
-                count++;
+    function myCtrl($http) {
+        var self = this;
+        self.tasks = [{
+                'title': 'Complete the Html Code',
+                'id': 1
+            },
+            {
+                'title': 'Complete the JS code',
+                'id': 2
             }
-        }
-        return count;
-    };
+        ];
+        self.title;
 
-    $scope.addTodo = function() {
-        if ($scope.todoText !== '') {
-            $scope.todos.push({
-                text: $scope.todoText,
-                done: false
-            });
-            $scope.todoText = '';
+        self.removeTask = function(id) {
+            for (let i = 0; i < self.tasks.length; i++) {
+                if (self.tasks[i]['id'] === id) {
+                    if (i > -1) {
+                        self.tasks.splice(i, 1);
+                    }
+                    break;
+                }
+            }
         };
-    };
 
-    $scope.changeState = function(todo) {
-        todo.done = todo.done ? false : true;
-    };
-
-});
+        self.addTask = function() {
+            if (self.title !== "") {
+                var len = self.tasks.length;
+                var id;
+                id = len === 0 ? 0 : self.tasks[len - 1]['id'] + 1;
+                var task = {
+                    'title': self.title,
+                    'id': id
+                };
+                self.tasks.push(task);
+                self.title = '';
+            }
+        };
+    }
+})();

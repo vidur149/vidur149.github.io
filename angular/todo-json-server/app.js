@@ -5,18 +5,12 @@
 
     function myCtrl($http) {
         var self = this;
-        self.tasks = [{
-                'title': 'Complete the Html Code',
-                'id': 1,
-                'createdDate': new Date(1498212323393)
-            },
-            {
-                'title': 'Complete the JS code',
-                'id': 2,
-                'createdDate': new Date(1498212323399)
-            }
-        ];
+        self.tasks = [];
         self.title;
+
+        $http.get('http://localhost:3000/tasks').then(function(response) {
+            self.tasks = response.data;
+        });
 
         self.removeTask = function(id) {
             for (let i = 0; i < self.tasks.length; i++) {
@@ -27,6 +21,7 @@
                     break;
                 }
             }
+            $http.delete('http://localhost:3000/tasks/' + id);
         };
 
         self.addTask = function() {
@@ -39,10 +34,15 @@
                     'id': id,
                     'createdDate': new Date()
                 };
-                self.tasks.push(task);
-                self.title = '';
+                let jsonObj = JSON.stringify(task);
+                $http.post('http://localhost:3000/tasks', jsonObj).then(function() {
+                    self.tasks.push(task);
+                    self.title = '';
+                });
+
             }
         };
+
         self.order = '';
         self.orderByDate = function() {
             self.order = self.order == 'title' ? '' : 'title';
