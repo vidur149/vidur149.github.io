@@ -1,0 +1,39 @@
+<!Doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="moment.js"></script>
+    <script src="angular-moment.js"></script>
+
+    <script src="//use.edgefonts.net/aclonica.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body ng-app="todo" ng-controller="myCtrl as vm">
+    <div class="todo-header">
+        <h1>TODO LIST</h1>
+        <h4>Aapko <span class="todo-number">{{ vm.tasks.length }}</span> kaam karne hai</h4>
+    </div>
+    <div class="container">
+        <form class="todo-form">
+            <input type="text" placeholder="enter task title" name="title" ng-model="vm.title"></input>
+            <button ng-click="vm.addTask()">Add</button>
+            <div class="controls">
+                <input type="text" placeholder="search task" name="title" ng-model="vm.query"></input>
+                <button ng-click="vm.orderByDate()">Order By Title</button>
+            </div>
+        </form>
+        <ul id="list">
+            <li ng-repeat="task in vm.tasks | filter:vm.query |  orderBy: vm.order">
+                <div class="title"> {{ task.title}}</div>
+                <span class="time" am-time-ago="task.createdDate"></span>
+                <div ng-click="vm.removeTask(task.id)" class="remove ">X</div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
