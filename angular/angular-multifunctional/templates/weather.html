@@ -1,0 +1,35 @@
+<div ng-controller="weatherController" class="weather {{state}}">
+    <div class="std-container weather-container">
+        <div class="search-box">
+            <input class="weather-input" vs-google-autocomplete ng-model="address" name="address" type="text" vs-latitude="latitude" vs-longitude="longitude" placeholder="Enter a Place">
+            <button ng-click="getWeather(latitude, longitude)">Get Weather Details</button>
+        </div>
+        <h1> Weather in {{response.name}}, {{response.sys.country}} </h1>
+        <h2>
+            {{response.main.temp}} °C
+        </h2>
+        <span>{{date | date: 'medium'}}</span>
+        <div class="weather-des">
+            <p> {{response.weather[0].description}} </p>
+            <img src="{{img_src}}" alt="weather-logo">
+        </div>
+        <h3>
+            Details
+        </h3>
+        <table>
+            <tr>
+                <td>Feels Like</td>
+                <td>{{response.main.temp}} °C</td>
+            </tr>
+            <tr>
+                <td>Wind</td>
+                <td>{{response.wind.speed}} m/s</td>
+            </tr>
+            <tr>
+                <td>Humidity</td>
+                <td>{{response.main.humidity}} %</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<button ui-sref="index">Back</button>

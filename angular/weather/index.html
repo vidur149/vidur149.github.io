@@ -5,7 +5,7 @@
     <title>Weather</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <!--google places library-->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKkuvSBlGg20wqM2GatxPdvs-rt2x6sps&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY9OZoRazT6uhVFCG0VBwHGuLqLjD9uas&libraries=places"></script>
     <!--third party module for using google places library-->
     <script src="vsGoogle.js"></script>
     <script src="app.js"></script>
@@ -25,7 +25,7 @@
             <h2>
                 {{response.main.temp}} °C
             </h2>
-            <span>{{date }}</span>
+            <span>{{date | date: 'medium'}}</span>
             <div class="weather-des">
                 <p> {{response.weather[0].description}} </p>
                 <img src="{{img_src}}" alt="weather-logo">

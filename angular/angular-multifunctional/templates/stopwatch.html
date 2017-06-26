@@ -1,0 +1,11 @@
+<div class="stopwatch" ng-controller="stopwatchController">
+    <div class="{{state}} std-container outer-container">
+        <h1 class="timer">{{ time() }} </h1>
+        <div class="btn-container std-container">
+            <h3 ng-click="startWatch()" class="inc-btn std-btn">Start</h3>
+            <h3 ng-click="stopWatch()" class="dec-btn std-btn">Stop</h3>
+            <h3 ng-click="resetWatch()" class="resest-btn std-btn">Reset</h3>
+        </div>
+    </div>
+</div>
+<button ui-sref="index">Back</button>

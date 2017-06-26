@@ -1,0 +1,263 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: cadetblue;
+    font-family: maiden-orange, serif;
+}
+
+.stopwatch,
+.weather,
+.todo {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: maiden-orange, serif;
+    width: 100%;
+}
+
+.timer {
+    margin: 0;
+}
+
+.todo {
+    display: block;
+    width: 70%;
+}
+
+.std-container {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    flex-direction: column;
+    font-family: maiden-orange, serif;
+    font-size: x-large;
+}
+
+.outer-container {
+    height: 100%;
+    padding: 10%;
+}
+
+.reset {
+    background-color: skyblue
+}
+
+.start {
+    background-color: lightgreen;
+}
+
+.stop {
+    background-color: indianred;
+}
+
+.btn-container {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.std-btn {
+    cursor: pointer;
+    background: floralwhite;
+    padding: 20px;
+    border-radius: 37px;
+}
+
+.todo-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: seashell;
+    height: 15vh;
+    justify-content: space-around;
+    font-family: aclonica, sans-serif;
+}
+
+h4,
+h1 {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 15px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todo-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: aliceblue;
+    padding: 4% 31%;
+}
+
+#list {
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+#list li {
+    display: flex;
+    flex-direction: row;
+    font-family: aclonica, sans-serif;
+    font-size: large;
+    /* justify-content: space-between; */
+    /* margin-bottom: 15px; */
+    text-transform: capitalize;
+    padding: 0px 26%;
+    border-bottom: 1px solid;
+    padding: 26px;
+    margin-bottom: 1px;
+}
+
+.remove {
+    cursor: pointer;
+    margin: 0 20px;
+}
+
+.todo-input {
+    font-size: large;
+    font-family: aclonica, sans-serif;
+    background-color: white;
+}
+
+.todo-number {
+    font-size: 4em;
+    color: aqua;
+}
+
+.time {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    color: darkcyan;
+    text-transform: lowercase;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.std-btn {
+    cursor: pointer;
+    background: floralwhite;
+    padding: 20px;
+    border-radius: 37px;
+}
+
+.sw-header {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    justify-content: center;
+}
+
+.weather {
+    background: darksalmon;
+}
+
+.weather.morning {
+    background: url(http://clipart-library.com/images/piodbB7bT.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.weather.night {
+    background: url(http://www.fg-a.com/wallpapers/moon-clouds.jpg);
+    color: wheat;
+    background-size: 100%;
+}
+
+.weather-des {
+    display: flex;
+}
+
+table {
+    width: 50%;
+    height: 30%;
+    text-align: center;
+    border: 1px solid black;
+    table-layout: fixed;
+}
+
+.std-container.weather-container {
+    justify-content: center;
+    height: 100%;
+}
+
+td {
+    font-size: larger;
+}
+
+.weather-input {
+    padding: 10px 15px;
+    width: 100%;
+    border: none;
+}
+
+.search-box {
+    display: flex;
+    width: 49%;
+    border: 1px solid;
+    margin: 20px 0px;
+}
+
+button {
+    width: 20%;
+    border: none;
+}
+
+.app-tiles {
+    cursor: pointer;
+}
+
+.app-tiles p {
+    text-align: center;
+    font-size: x-large;
+    margin: 0;
+    padding: 10px;
+    background: seashell;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+nav img {
+    height: 500px;
+    width: 400px;
+}
+
+ui-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.home-h1 {
+    margin-top: 3%;
+}
