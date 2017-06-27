@@ -12,4 +12,4 @@ Github pages are really awesome for hosting front-end static content.
 
 
 
-- I will add the complete and details table of contents soon :D
+## I will add the complete and detailed table of contents soon :D
