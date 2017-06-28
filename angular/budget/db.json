@@ -1,7 +1,85 @@
 {
-    "budget": {
-        "totalBudget": "Complete the JS code",
-        "remainingBudget": 2,
-        "createdOn": "1498212323399"
+  "budget": [
+    {
+      "totalBudget": 20000,
+      "remainingBudget": 14179,
+      "month": 5,
+      "id": 1
+    },
+    {
+      "month": 6,
+      "totalBudget": 15000,
+      "remainingBudget": 15000,
+      "id": 2
     }
+  ],
+  "expense": [
+    {
+      "id": 1,
+      "month": 5,
+      "category": "Groceries",
+      "description": "bought yellow daal for the house",
+      "ammount": 200,
+      "madeOn": 1498212323399
+    },
+    {
+      "id": 2,
+      "month": 5,
+      "category": "Transportation",
+      "description": "went to nehru place",
+      "ammount": 500,
+      "madeOn": 1498212323399
+    },
+    {
+      "id": 3,
+      "month": 5,
+      "category": "Tech Expenses",
+      "description": "Laptop repairing",
+      "ammount": 1000,
+      "madeOn": 1498212323399
+    },
+    {
+      "id": 4,
+      "month": 5,
+      "category": "Cooking Gas",
+      "description": "",
+      "ammount": 800,
+      "madeOn": 1498212323399
+    },
+    {
+      "ammount": 1800,
+      "description": "internet bill",
+      "category": "Bills",
+      "madeOn": "2017-06-28T12:25:51.130Z",
+      "month": 5,
+      "id": 5
+    },
+    {
+      "ammount": 21,
+      "description": "das",
+      "category": "Milk & Bread",
+      "madeOn": "2017-06-28T12:31:33.423Z",
+      "month": 5,
+      "id": 6
+    },
+    {
+      "ammount": 2000,
+      "description": "something",
+      "category": "Other",
+      "madeOn": "2017-06-28T12:36:02.154Z",
+      "month": 5,
+      "id": 7
+    }
+  ],
+  "category": [
+    "Milk & Bread",
+    "Eggs",
+    "Groceries",
+    "Vegetables",
+    "Transportation",
+    "Tech Expenses",
+    "Cooking Gas",
+    "Other",
+    "Bills"
+  ]
 }

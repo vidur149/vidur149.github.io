@@ -5,15 +5,72 @@
     <title>Budget App</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://unpkg.com/angular-ui-router@1.0.0-rc.1/release/angular-ui-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
     <script src="app.js"></script>
     <link rel="stylesheet" href="theme.css ">
-    <script src="https://use.edgefonts.net/maiden-orange.js"></script>
+    <script src="//use.edgefonts.net/gentium-basic.js"></script>
     <script src="scripts/moment.js"></script>
     <script src="scripts/angular-moment.js"></script>
+    <script src="budget-service.js"></script>
+
 </head>
 
 <body>
-    <ui-view></ui-view>
+    <div ng-controller="budgetController as vm" class="main-container">
+
+        <div class="budget-header">
+            <p class="current-date"> {{ vm.currentDate | date:'mediumDate'}}</p>
+            <p class="total-budget">Total Budget: {{ vm.totalBudget }}</p>
+            <p class="remaining-budget">Remaining Budget: {{ vm.remainingBudget }}</p>
+            <p class="days-left">Days Left: {{ vm.daysLeft }}</p>
+        </div>
+
+        <!--<form ng-show="vm.currentDay == 28">
+            <input type="text" placeholder="enter budget" name="budget" ng-model="newBudget"></input>
+            <button ng-click="updateBudget()">Update</button>
+        </form>-->
+
+        <!--ToDo : 
+            1) Add an option to enter new budget when a new month starts
+            2) Add an option to see previous months expense-->
+        <div class="content-container">
+            <div class="expense-container">
+                <h1>This Month's Expense</h1>
+                <button ng-hide="vm.showExpenseForm" ng-click="vm.toggleExpenseForm()">Add Expense</button>
+                <form ng-show="vm.showExpenseForm" class="expense-form">
+                    <textarea required type="text" placeholder="enter description" name="budget" ng-model="vm.description" required>{{vm.description}}</textarea>
+                    <div class="expense-div">
+                        <input type="number" placeholder="enter ammount" name="ammount" ng-model="vm.ammount" required></input>
+                        <select ng-model="vm.selectedCategory" required>
+                                <option ng-repeat="category in vm.categories" value="{{category}}">{{category}}</option>
+                        </select>
+                    </div>
+                    <button ng-click="vm.addExpense()">ADD</button>
+                </form>
+                <ul>
+                    <li ng-repeat="expense in vm.expenses | orderBy: 'id'" class="expense-card">
+                        <div class="expense-head">
+                            <h3 class="expense-category">{{expense.category}}</h3>
+                            <p class="description">{{expense.description}}</p>
+                        </div>
+                        <p>{{expense.ammount | currency: '₹'}}</p>
+                        <p>{{expense.madeOn | date: 'mediumDate'}}
+                    </li>
+                </ul>
+            </div>
+            <div class="chart-container">
+                <div class="pie-chart">
+                    <canvas class="chart chart-pie" chart-data="vm.data2" chart-labels="vm.labels2" chart-colors="vm.colors" chart-dataset-override="vm.datasetOverride2"></canvas>
+                    <h3>Category Wise Expenditure</h3>
+                </div>
+                <div class="bar-chart">
+                    <canvas class="chart chart-bar" chart-data="vm.data" chart-labels="vm.labels" chart-series="vm.series" chart-click="vm.onClick" chart-options="vm.options"></canvas>
+                    <h3>Month Wise Budget</h3>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

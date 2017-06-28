@@ -1,8 +1,126 @@
 body {
     margin: 0;
+    min-height: 100vh;
+    font-family: gentium-basic, sans-serif;
+}
+
+.main-container {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    background: cadetblue;
-    font-family: maiden-orange, serif;
+}
+
+p {
+    margin: 0;
+}
+
+.budget-header {
+    /* flex: 1; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: larger;
+}
+
+.budget-header p {
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    margin-right: 5%;
+    height: 100px;
+    width: 300px;
+}
+
+.total-budget {
+    background: darkseagreen;
+}
+
+.content-container {
+    display: flex;
+    height: 100%;
+}
+
+.expense-container {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.remaining-budget {
+    background: cornflowerblue
+}
+
+.days-left {
+    background: orange;
+}
+
+.current-date {
+    background: tomato;
+}
+
+.chart-container {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.bar-chart,
+.pie-chart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.chart-bar {
+    width: 100%;
+    height: 70%;
+}
+
+.expense-card {
+    list-style: none;
+    display: flex;
+    padding: 15px;
+    justify-content: space-around;
+    align-items: center;
+    background: aliceblue;
+    border-bottom: 1px solid black;
+}
+
+.expense-head {
+    width: 50%;
+    font-family: sans-serif;
+}
+
+.expense-card>p {
+    width: 25%;
+}
+
+ul {
+    width: 90%;
+    margin: 0;
+}
+
+.description {
+    font-style: italic;
+}
+
+.expense-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.expense-div {
+    display: flex;
+    flex-direction: column;
 }
