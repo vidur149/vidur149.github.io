@@ -5,6 +5,7 @@ Github pages are really awesome for hosting front-end static content.
 
 
 # Contents
+- Vidur Singla Website
 - Angular Weather App
 - Angular ToDo App
 - Angular Stopwatch App
