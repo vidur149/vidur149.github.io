@@ -118,7 +118,7 @@ body.show-menu #left-nav{left:0;top:0;z-index:99;}
 .bars li{position:relative;margin-bottom:60px;background:#bdc3c7;height:42px;border-radius:3px;overflow:hidden;}
 .bars li em{color:#fff;font:15px/42px "Open Sans",sans-serif;letter-spacing:2px;padding-left:20px;position:relative;text-transform:uppercase;}
 .bar-expand{position:absolute;left:0;top:0;margin:0;padding-right:24px;background:#34495e;display:inline-block;height:42px;line-height:42px;border-radius:3px 0 0 3px;}
-.react{background:#1abc9c;width:75%;-moz-animation:react 2s ease;-webkit-animation:react 2s ease;}
+.react{background:#1abc9c;width:95%;-moz-animation:react 2s ease;-webkit-animation:react 2s ease;}
 .typescript{background:#e7ba3c;width:90%;-moz-animation:typescript 2s ease;-webkit-animation:typescript 2s ease;}
 .javascript{background:#e74c3c;width:88%;-moz-animation:illustrator 2s ease;-webkit-animation:illustrator 2s ease;}
 .angular{background:#34495e;width:70%;-moz-animation:angular 2s ease;-webkit-animation:angular 2s ease;}
