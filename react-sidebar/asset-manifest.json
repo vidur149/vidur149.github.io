@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/react-sidebar/static/js/main.02249bf7.chunk.js",
+    "main.js.map": "/react-sidebar/static/js/main.02249bf7.chunk.js.map",
+    "runtime-main.js": "/react-sidebar/static/js/runtime-main.51e74cfc.js",
+    "runtime-main.js.map": "/react-sidebar/static/js/runtime-main.51e74cfc.js.map",
+    "static/js/2.8ec18176.chunk.js": "/react-sidebar/static/js/2.8ec18176.chunk.js",
+    "static/js/2.8ec18176.chunk.js.map": "/react-sidebar/static/js/2.8ec18176.chunk.js.map",
+    "index.html": "/react-sidebar/index.html",
+    "precache-manifest.bde88e05b12ac5d78a131bd49afb0f5a.js": "/react-sidebar/precache-manifest.bde88e05b12ac5d78a131bd49afb0f5a.js",
+    "service-worker.js": "/react-sidebar/service-worker.js",
+    "static/js/2.8ec18176.chunk.js.LICENSE.txt": "/react-sidebar/static/js/2.8ec18176.chunk.js.LICENSE.txt",
+    "static/media/flat.03bd9eda.svg": "/react-sidebar/static/media/flat.03bd9eda.svg",
+    "static/media/happy.24dc7526.svg": "/react-sidebar/static/media/happy.24dc7526.svg",
+    "static/media/sad.b7bfb7a5.svg": "/react-sidebar/static/media/sad.b7bfb7a5.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.51e74cfc.js",
+    "static/js/2.8ec18176.chunk.js",
+    "static/js/main.02249bf7.chunk.js"
+  ]
+}
